@@ -87,6 +87,8 @@ install_version() {
 	fi
 
 	(
+		ls -la "$ASDF_DOWNLOAD_PATH"
+		ls -la "$install_path"
 		mkdir -p "$install_path"
 		cp -r "$ASDF_DOWNLOAD_PATH"/* "$install_path"
 

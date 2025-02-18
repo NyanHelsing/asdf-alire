@@ -2,15 +2,43 @@
 
 set -euo pipefail
 
+# Normalize OS name
+OS="$(uname -s | tr '[:upper:]' '[:lower:]')"
+case "$OS" in
+    linux*)   OS="linux" ;;
+    darwin*)  OS="macos" ;;
+    cygwin*|msys*|mingw*) OS="windows" ;;
+    *)        OS="unknown" ;;
+esac
+
+# Normalize Architecture
+ARCH="$(uname -m | tr '[:upper:]' '[:lower:]')"
+case "$ARCH" in
+    x86_64|amd64)
+        ARCH="x86_64"
+        ;;
+    arm64|aarch64)
+        ARCH="aarch64"
+        ;;
+    i386|i686)
+        ARCH="x86"
+        ;;
+    *)
+        ARCH="unknown"
+        ;;
+esac
+
 # TODO: Ensure this is the correct GitHub homepage where releases can be downloaded for alire.
 GH_REPO="https://github.com/alire-project/alire"
-TOOL_NAME="alire"
+TOOL_NAME="alr"
 TOOL_TEST="alr version"
 
 fail() {
 	echo -e "asdf-$TOOL_NAME: $*"
 	exit 1
 }
+
+
 
 curl_opts=(-fsSL)
 
@@ -42,7 +70,7 @@ download_release() {
 	filename="$2"
 
 	# TODO: Adapt the release URL convention for alire
-	url="$GH_REPO/archive/v${version}.tar.gz"
+	url="$GH_REPO/releases/download/v${version}/${TOOL_NAME}-${version}-bin-${ARCH}-${OS}.zip"
 
 	echo "* Downloading $TOOL_NAME release $version..."
 	curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"

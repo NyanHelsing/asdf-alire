@@ -92,6 +92,9 @@ install_version() {
 		mkdir -p "$install_path"
 		cp -r "$ASDF_DOWNLOAD_PATH"/* "$install_path"
 
+		echo "Installed $TOOL_NAME $version to $install_path"
+		ls -la "$install_path"
+
 		# TODO: Assert alire executable exists.
 		local tool_cmd
 		tool_cmd="$(echo "$TOOL_TEST" | cut -d' ' -f1)"

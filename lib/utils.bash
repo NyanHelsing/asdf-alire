@@ -3,7 +3,7 @@
 set -euo pipefail
 
 # TODO: Ensure this is the correct GitHub homepage where releases can be downloaded for alire.
-GH_REPO="https://github.com/NyanHelsing/alire"
+GH_REPO="https://github.com/alire-project/alire"
 TOOL_NAME="alire"
 TOOL_TEST="alr version"
 

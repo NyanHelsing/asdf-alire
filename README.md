@@ -2,7 +2,7 @@
 
 # asdf-alire [![Build](https://github.com/NyanHelsing/asdf-alire/actions/workflows/build.yml/badge.svg)](https://github.com/NyanHelsing/asdf-alire/actions/workflows/build.yml) [![Lint](https://github.com/NyanHelsing/asdf-alire/actions/workflows/lint.yml/badge.svg)](https://github.com/NyanHelsing/asdf-alire/actions/workflows/lint.yml)
 
-[alire](https://github.com/NyanHelsing/alire) plugin for the [asdf version manager](https://asdf-vm.com).
+[alire](https://github.com/alire-project/alire) plugin for the [asdf version manager](https://asdf-vm.com).
 
 </div>
 

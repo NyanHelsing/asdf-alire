@@ -71,6 +71,7 @@ download_release() {
 
 	# TODO: Adapt the release URL convention for alire
 	url="$GH_REPO/releases/download/v${version}/${TOOL_NAME}-${version}-bin-${ARCH}-${OS}.zip"
+	echo $url
 
 	echo "* Downloading $TOOL_NAME release $version..."
 	curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
